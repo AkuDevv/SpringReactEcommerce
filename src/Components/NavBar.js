@@ -24,6 +24,9 @@ class NavBar extends Component {
                         </ul>
                     </div>
                         <span className="navbar-text">
+                        <Link to="#" className="nav-link App"><div style={{color:"red"}}><MDBIcon far size="2x"/>{this.props.user.name}</div></Link>
+                        </span>
+                        <span className="navbar-text">
                         <Link to="/editClient" className="nav-link App"><div style={{color:"red"}}><MDBIcon far size="2x" icon="user-circle" /></div></Link>
                         </span>
                         <span className="navbar-text">

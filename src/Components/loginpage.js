@@ -62,7 +62,7 @@ export default class LoginPage extends Component {
           if(res.data.password !== this.state.password) alert("Wrong password !!");
           else{         
             this.props.login(res.data);
-            alert("Welcome back");
+            alert("Welcome back "+res.data.name);
           }
         }
       })

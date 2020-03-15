@@ -16,7 +16,7 @@ class Home extends Component {
 
        <Router>
         
-       <NavBar logout={this.props.logout}></NavBar>
+       <NavBar logout={this.props.logout} user={this.props.user}></NavBar>
         <br></br>
 
         <Route path="/" exact component={()=><CommandesPage user={this.props.user} />}/> 
