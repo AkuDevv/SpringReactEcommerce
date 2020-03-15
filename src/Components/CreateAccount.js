@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from "mdbreact";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
@@ -74,12 +74,12 @@ class CreateAccount extends Component {
     e.preventDefault();
 
     const client = {
-      fullName: this.state.name,
+      name: this.state.name,
       email: this.state.email,
       tel: this.state.tel,
       password: this.state.password,
       ville: this.state.ville,
-      codePostal: this.state.codepostal ,
+      codepostal: this.state.codepostal ,
       adresse: this.state.adresse,
     };
 
@@ -105,72 +105,122 @@ class CreateAccount extends Component {
   render() {
     return (
       <div className="container">
-        <MDBContainer>
+        <MDBContainer className="mt5">
           <MDBRow center={true}>
             <MDBCol md="8">
-              <h2>Creer un compte</h2>
+            <p className="h4 text-center py-4 red-text App">
+                <MDBIcon
+                  icon="plus-circle"
+                  size="2x"
+                  className="red-text mb-2"
+                />
+                <br/>
+                    CREER UN COMPTE
+              </p>
               <br />
               <form onSubmit={this.onSubmit}>
-                <div className="grey-text">
+                <div className="red-text App">
                   <div className="form-group">
-                    <label>Nom : </label>
-                    <input
-                      className="form-control"
-                      placeholder={this.state.name}
+                    <MDBInput
+                      background
+                      label="Nom"
+                      /* icon="user" */
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.name}
                       onChange={this.onChangeName}
                     />
                   </div>
                   <div className="form-group">
-                    <label>Email : </label>
-                    <input
-                      className="form-control"
-                      placeholder={this.state.email}
+                  <MDBInput
+                      background
+                      label="Email"
+                      /* icon="user" */
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.email}
                       onChange={this.onChangeEmail}
                     />
                   </div>
                   <div className="form-group">
-                    <label>Telephone : </label>
-                    <input
-                      className="form-control"
+                  <MDBInput
+                      background
+                      label="Telephone"
+                      /* icon="user" */
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.tel}
                       onChange={this.onChangeTel}
-                      placeholder={this.state.tel}
                     />
                   </div>
                   <div className="form-group">
-                    <label>Ville : </label>
-                    <input
-                        className="form-control"
-                        onChange={this.onChangeVille}
-                        placeholder={this.state.ville}
+                  <MDBInput
+                      background
+                      label="Ville"
+                      /* icon="user" */
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.ville}
+                      onChange={this.onChangeVille}
                     />
                   </div>
                   <div className="form-group">
-                    <label>Code Postale : </label>
-                    <input
-                        className="form-control"
-                        onChange={this.onChangeCodepostale}
-                        placeholder={this.state.codepostal}
+                  <MDBInput
+                      background
+                      label="Code Postale"
+                      /* icon="user" */
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.codepostal}
+                      onChange={this.onChangeCodepostale}
                     />
                   </div>
                   <div className="form-group">
-                    <label>Adresse : </label>
-                    <input
-                        className="form-control"
-                        onChange={this.onChangeAdresse}
-                        placeholder={this.state.adresse}
+                  <MDBInput
+                      background
+                      label="Adresse"
+                      /* icon="user" */
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.adresse}
+                      onChange={this.onChangeAdresse}
                     />
                   </div>
                   <div className="form-group">
-                    <label>Password : </label>
-                    <input
-                        className="form-control"
-                        onChange={this.onChangePassword}
-                        placeholder={this.state.password}
+                  <MDBInput
+                      background
+                      label="Mot de passe"
+                      /* icon="user" */
+                      group
+                      type="password"
+                      validate
+                      error="wrong"
+                      success="right"
+                      value={this.state.password}
+                      onChange={this.onChangePassword}
                     />
                   </div>
                   <div className="text-center py-4 mt-3">
-                    <MDBBtn color="primary" type="submit">
-                      Creer le compte
+                    <MDBBtn color="red" type="submit">
+                      CREER LE COMPTE
                     </MDBBtn>
                   </div>
                 </div>

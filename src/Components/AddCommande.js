@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
@@ -14,6 +14,7 @@ class AddCommande extends Component {
 
     this.state = {
       date: new Date(),
+      productName :"",
       quantity: 0,
     };
   }
@@ -85,9 +86,15 @@ class AddCommande extends Component {
         <MDBContainer>
           <MDBRow center={true}>
             <MDBCol md="8">
-              <h2>Effectuer un achat</h2>
+            <p className="h4 text-center py-4 red-text App">
               <br />
-              <h3>Produit : </h3>
+                  EFFECTUER UN ACHAT
+                </p>
+            <p className="h4 text-center py-4 cyan-text App">
+              <br />
+                  Produit : {this.state.productName}
+                </p>
+              <br />
               <form onSubmit={this.onSubmit}>
                 <div className="grey-text">
                   <div className="form-group">
@@ -99,7 +106,7 @@ class AddCommande extends Component {
                     />
                   </div>
                   <div className="text-center py-4 mt-3">
-                    <MDBBtn color="primary" type="submit">
+                    <MDBBtn color="cyan" type="submit">
                       Acheter
                     </MDBBtn>
                   </div>

@@ -5,6 +5,7 @@ import AddCommande from "./AddCommande";
 import CommandesPage from "./CommandesPage";
 import NavBar from "./NavBar"
 import { ArticlesPage } from "./ArticlesPage";
+import EditClient from "./EditClient";
 
 
 class Home extends Component {
@@ -21,19 +22,8 @@ class Home extends Component {
         <Route path="/" exact component={()=><CommandesPage user={this.props.user} />}/> 
         <Route path="/addCommande/:articleId/:clientId" component={AddCommande}></Route>
         <Route path="/articles" component={()=><ArticlesPage user={this.props.user} />}/>
-        {/* <Route path="/update/:id" component={EditStudent}></Route>
-
-        <Route path="/prof" component={ProfPage}></Route>
-        <Route path="/createprofessor" component={CreateProf}></Route>
-        <Route path="/updateprof/:id" component={EditProf}></Route>
-
-        <Route path="/filliere" component={FillierePage}></Route>
-        <Route path="/updatefiliere/:id" component={EditFil}></Route>
-
-        <Route path="/note" component={NotesPage}></Route>
-        <Route path="/updatenote/:stid/:subid" component={UpdateNote}></Route> */}
-
-      </Router> 
+        <Route path="/editClient/" component={()=><EditClient user={this.props.user}/>}></Route>
+      </Router>
     );
   }
 }

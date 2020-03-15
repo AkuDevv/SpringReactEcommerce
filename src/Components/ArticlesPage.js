@@ -34,7 +34,7 @@ const Article = props => (
             width: "80px",
             borderRadius: "40px"
           }}
-          className="btn btn-primary btn-sm float-right btn-mr-4 btn-mb-4"
+          className="btn btn-secondary btn-sm float-right btn-mr-1 btn-mb-1"
         >
           +
         </button>
@@ -51,7 +51,7 @@ export class ArticlesPage extends Component {
     this.onChangeSearch=this.onChangeSearch.bind(this);
     this.state = {
       articles: [],
-      categories: ["All"],
+      categories: ["Toutes les catégories"],
       search:"",
     };
   }
@@ -61,7 +61,7 @@ export class ArticlesPage extends Component {
       .get("http://localhost:9192/categories/")
       .then(res =>{
         this.setState({
-          categories : ["All",...res.data.map(c=>c.categ_name)],
+          categories : ["Toutes les catégories",...res.data.map(c=>c.categ_name)],
         });
       })
       .catch(e=>console.log(e))
@@ -89,7 +89,7 @@ export class ArticlesPage extends Component {
     return this.state.articles
     .filter(
       article =>
-        this.state.search !== "All" ?
+        this.state.search !== "Toutes les catégories" ?
         article.categorie.categ_name.toLowerCase().includes(this.state.search.toLowerCase())||
         this.state.search.length === 0 : true
     )

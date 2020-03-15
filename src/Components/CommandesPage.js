@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const Commande = props => (
   <tr>
@@ -9,10 +8,7 @@ const Commande = props => (
     <td>{props.commande.dateCommande.substring(0, 10)}</td>
     <td>{props.commande.quantity}</td>
     <td>
-      {/* <Link to={"/update/" + props.student._id}>
-        <i className="far fa-edit"></i>
-      </Link>{" "} */}
-      |{" "}
+      {" "}
       <a
         href="#"
         onClick={() => {
@@ -96,17 +92,8 @@ class CommandesPage extends Component {
   render() {
     return (
       <div className="container">
-        <div className="grey-text">
-          <input
-            className="form-control"
-            placeholder="Rechercher par nom ou filière"
-            onChange={this.onChangeRech}
-          />
-        </div>
-        <hr />
-
         <table className="table table-striped table-bordered table-hover">
-          <thead className="thead-dark">
+          <thead className="thead-light">
             <tr>
               <th>Article</th>
               <th>Date de commande</th>

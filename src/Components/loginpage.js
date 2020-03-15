@@ -5,8 +5,6 @@ import {
   MDBCol,
   MDBInput,
   MDBBtn,
-  MDBCard,
-  MDBCardBody,
   MDBIcon
 } from "mdbreact";
 import "bootstrap/dist/css/bootstrap.css";
@@ -28,7 +26,7 @@ export default class LoginPage extends Component {
 
   componentDidMount() {
     this.setState({
-      username: "safisaif@gmail.com",
+      username: "safisaif755@gmail.com",
       password: "saif"
     });
   }
@@ -72,13 +70,11 @@ export default class LoginPage extends Component {
       
   }
 
-  render() {
+  render() { 
     return (
       <MDBContainer className="mt-5">
         <MDBRow center={true}>
           <MDBCol md="6">
-            <MDBCard>
-              <MDBCardBody>
                 <form onSubmit={this.onSubmit}>
                   <p className="h4 text-center py-4 cyan-text App">
                     <MDBIcon
@@ -119,8 +115,6 @@ export default class LoginPage extends Component {
                     </MDBBtn>
                   </div>
                 </form>
-              </MDBCardBody>
-            </MDBCard>
           </MDBCol>
         </MDBRow>
       </MDBContainer>

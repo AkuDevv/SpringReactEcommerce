@@ -31,12 +31,17 @@ class App extends Component {
     else
       return (
         <div>
+        <div className="App">
         <LoginPage
           login={user => {
             this.setState({ connected: true, user: user });
           }}
         />
+        </div>
+        <hr style={{width:600}}/>
+        <div className="App">
         <CreateAccount/>
+        </div>
         </div>
       );
   }
