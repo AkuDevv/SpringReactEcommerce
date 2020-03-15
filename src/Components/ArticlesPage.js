@@ -47,12 +47,25 @@ const Article = props => (
 export class ArticlesPage extends Component {
   constructor(props) {
     super(props);
+
+    this.onChangeSearch=this.onChangeSearch.bind(this);
     this.state = {
       articles: [],
+      categories: ["All"],
+      search:"",
     };
   }
 
   componentDidMount() {
+    axios
+      .get("http://localhost:9192/categories/")
+      .then(res =>{
+        this.setState({
+          categories : ["All",...res.data.map(c=>c.categ_name)],
+        });
+      })
+      .catch(e=>console.log(e))
+
     axios
       .get("http://localhost:9192/articles/")
       .then(res => {
@@ -66,8 +79,21 @@ export class ArticlesPage extends Component {
       });
   }
 
+  onChangeSearch(e){
+    this.setState({
+      search : e.target.value,
+    });
+  }
+
   articleList() {
-    return this.state.articles.map(currentArticle => {
+    return this.state.articles
+    .filter(
+      article =>
+        this.state.search !== "All" ?
+        article.categorie.categ_name.toLowerCase().includes(this.state.search.toLowerCase())||
+        this.state.search.length === 0 : true
+    )
+    .map(currentArticle => {
       return (
         <Article
           article={currentArticle}
@@ -81,6 +107,29 @@ export class ArticlesPage extends Component {
   render() {
     return (
       <div className="container">
+{/*         <div className="grey-text">
+          <input
+            className="form-control"
+            placeholder="Rechercher par Catégorie"
+            onChange={this.onChangeSearch}
+          />
+        </div> */}
+        <div className="form-group">
+          <label>Categorie</label>
+             <select
+                   ref="userInput"
+                   className="form-control"
+                   onChange={this.onChangeSearch}
+                   >
+                   {this.state.categories.map(function(categorie) {
+                    return (
+                    <option key={categorie} value={categorie}>
+                    {categorie}
+                    </option>
+                  );
+                })}
+             </select>
+          </div>
         <br></br>
         {this.articleList()}
       </div>
